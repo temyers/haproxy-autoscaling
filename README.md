@@ -1,7 +1,7 @@
-Role Name haproxy-autoscaling
-=============================
+Role Name haproxy-autoscaling [![Build Status](https://travis-ci.org/temyers/haproxy-autoscaling.svg?branch=master)](https://travis-ci.org/temyers/haproxy-autoscaling)
+====================================================================================================
 
-An ansible role that installs scripts to support AWS autoscaling with HAProxy 
+An ansible role that installs scripts to support autoscaling instances with HAProxy 
 
 Requirements
 ------------
