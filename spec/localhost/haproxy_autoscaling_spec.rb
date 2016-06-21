@@ -48,9 +48,6 @@ describe "haproxy-autoscaling" do
         expect(`grep i-12345 #{haproxy_cfg_file} | wc -l`).to match /^1$/
       end
 
-    #   describe file(haproxy_cfg_file) do
-    #     its (:content) { should match /#{Regexp.escape("server i-12345 127.0.0.1:8080 cookie i-12345 check")}/ }
-    #   end
     end
 
 

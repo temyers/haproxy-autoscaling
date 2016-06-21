@@ -6,5 +6,12 @@
     - package:
         state: present
         name: haproxy
+    - copy:
+      src: "{{item}}"
+      dest: "/{{item}}"
+      mode: 777
+      with_items:
+        - etc/default/haproxy
+        - etc/haproxy/haproxy.cfg
   roles:
     - haproxy-autoscaling
