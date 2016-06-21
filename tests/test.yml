@@ -1,5 +1,6 @@
 ---
-- hosts: testhost
+- hosts: localhost
+  connection: local
   become: yes
   tasks:
     - package:
