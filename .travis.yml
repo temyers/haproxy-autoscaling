@@ -23,4 +23,5 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  - rake spec:localhost
+  - bundle install
+  - bundle exec rake spec:localhost
