@@ -13,5 +13,8 @@
       with_items:
         - etc/default/haproxy
         - etc/haproxy/haproxy.cfg
+    - service:
+        name: haproxy
+        state: restarted
   roles:
     - haproxy-autoscaling
