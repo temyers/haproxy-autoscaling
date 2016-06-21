@@ -1,0 +1,4 @@
+localhost
+  insert_after: "{{haproxy_config_insert_after}}"
+  haproxy_config_file: "{{haproxy_config_file}}"
+  haproxy_config_line: "{{haproxy_config_line}}"

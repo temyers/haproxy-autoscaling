@@ -1,0 +1,10 @@
+---
+- hosts: packer_host
+#- hosts: localhost
+  remote_user: root
+  tasks:
+    - package:
+        state: present
+        name: haproxy
+  roles:
+    - haproxy-autoscaling
