@@ -1,15 +1,14 @@
 ---
-- hosts: packer_host
-#- hosts: localhost
-  remote_user: root
+- hosts: testhost
+  become: yes
   tasks:
     - package:
         state: present
         name: haproxy
     - copy:
-      src: "{{item}}"
-      dest: "/{{item}}"
-      mode: 777
+        src: "{{item}}"
+        dest: "/{{item}}"
+        mode: 777
       with_items:
         - etc/default/haproxy
         - etc/haproxy/haproxy.cfg
