@@ -17,3 +17,14 @@
     - debug:
         msg: "Successfully removed server {{instance_id}}"
       when: add_result.changed
+    - name: Restart HAProxy
+      when: add_result.changed
+      register: restart_result
+      become: true
+      ignore_errors: true
+      service:
+        name: haproxy
+        state: restarted
+    - debug:
+        msg: "Successfully restarted HAProxy"
+      when: restart_result.changed

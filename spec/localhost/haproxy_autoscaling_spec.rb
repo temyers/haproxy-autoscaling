@@ -29,7 +29,9 @@ describe "haproxy-autoscaling" do
 
     describe command("#{haproxy_autoscale_dir}/scaleup.sh i-12345 127.0.0.1") do
       its(:stdout){ should match /#{Regexp.escape("Successfully added server i-12345 127.0.0.1")}/ }
-      its(:stdout){ should match /Restarting haproxy haproxy.*OK/ }
+      its(:stdout){ should match /Successfully restarted HAProxy/ }
+      # Useful for debugging test failures
+      # its(:stderr){ should eq "" }
 
       it "should add the server to haproxy config file" do
         # Have to re-run the command, since the command is evaluated before the context is set up
@@ -38,7 +40,7 @@ describe "haproxy-autoscaling" do
 
         haproxy_cfg_contents = File.open(haproxy_cfg_file) { |file| file.read }
         # puts haproxy_cfg_contents
-        expect(haproxy_cfg_contents).to match /#{Regexp.escape("server i-12345 127.0.0.1:8080 cookie i-12345 check")}/
+        expect(haproxy_cfg_contents).to match /#{Regexp.escape("server i-12345 127.0.0.1:80 cookie i-12345 check")}/
       end
 
       it "should only add a server once" do
@@ -57,7 +59,7 @@ describe "haproxy-autoscaling" do
 
     describe command("#{haproxy_autoscale_dir}/scaledown.sh i-11111") do
       its(:stdout){ should match /#{Regexp.escape("Successfully removed server i-11111")}/ }
-      its(:stdout){ should match /Restarting haproxy haproxy.*OK/ }
+      its(:stdout){ should match /Successfully restarted HAProxy/ }
 
       it "should remove the server from haproxy config file" do
         # Have to re-run the command, since the command is evaluated before the context is set up

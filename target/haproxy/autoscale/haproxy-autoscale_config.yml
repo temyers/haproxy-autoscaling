@@ -1,3 +1,0 @@
-insert_after: "#AUTOSCALE_SERVERS"
-haproxy_config_file: "../haproxy.cfg"
-haproxy_config_line: "server {{instance_id}} {{instance_ip}}:8080 cookie {{instance_id}} check"
