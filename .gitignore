@@ -41,3 +41,4 @@ build/
 
 # Ignore ruby generated files
 Gemfile.lock
+target/
