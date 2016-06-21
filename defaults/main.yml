@@ -1,2 +1,6 @@
 ---
 # defaults file for haproxy-autoscaling
+
+insert_after: "EOF"
+haproxy_config_file: "/etc/haproxy/haproxy.cfg"
+haproxy_config_line: "server {{instance_id}} {{instance_ip}}:80 cookie {{instance_id}} check"
